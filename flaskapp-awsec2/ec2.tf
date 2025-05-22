@@ -9,7 +9,7 @@ resource "aws_instance" "private" {
   vpc_security_group_ids = [aws_security_group.docker_on_ec2.id, ]
   key_name               = var.ssh_key
 
-  # User data script to configure docker 
+  # User data script to configure docker
   user_data = <<-EOF
               #!/bin/bash
               yum update -y
@@ -59,5 +59,3 @@ resource "aws_security_group" "docker_on_ec2" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
-
-

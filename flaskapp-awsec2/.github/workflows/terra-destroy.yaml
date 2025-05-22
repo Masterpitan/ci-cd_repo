@@ -14,8 +14,8 @@ jobs:
       # AWS credentials provided by GitHub Secrets
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_REGION: ap-south-1  # Specifies the AWS region
-      TERRAFORM_VER: 1.5.1     # Specifies the Terraform version to use
+      AWS_REGION: us-east-1  # Specifies the AWS region
+      TERRAFORM_VER: 1.11.4     # Specifies the Terraform version to use
 
     steps:
       - name: Checkout Repository
@@ -25,7 +25,7 @@ jobs:
         # Sets up the Terraform CLI with the specified version
         uses: hashicorp/setup-terraform@v1
         with:
-          terraform_version: ${{ env.TERRAFORM_VER }} 
+          terraform_version: ${{ env.TERRAFORM_VER }}
 
       - name: Terraform Init
         # Initializes the Terraform working directory
