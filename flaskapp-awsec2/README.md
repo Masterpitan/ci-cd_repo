@@ -1,12 +1,25 @@
-We will deploy the dockerized Flask application on AWS EC2 with GitHub Actions. We will follow the Devops core principle - CICD(continuous integration and continuous deployment) to build and deploy the application on every code change. 
+This project captures the process of deploying a containerised Flask application on AWS using the Continous Integration, Continous Deployment (CI/CD) culture. this aligns with DevOps principles. Thus, every code change we make will automatically reflect through the GitHub actions.
 
-Whenever we change the Python code, its dependencies, and Dockerfile, GitHub Action workflow will build a new Docker image, push it to AWS ECR, and deploy a new version of the Docker container that we can access using EC2 instances public IP on port 80.
+### Key Features, Tools and Services
+1. Python (Flask framework)
+2. GitHub and GitHub Actions
+3. Docker
+4. AWS services
+5. Terraform
 
-Blog post explaining the code: 
+With Terraform as the IAC tool, the first step is to write our code for deploying the various AWS services needed for the app. The AWS services include:
 
-https://medium.com/@akhilesh-mishra/devops-zero-to-hero-4-deploy-a-dockerized-flask-app-on-aws-using-github-action-e5255fc4e0c9
+1. EC2 Instance
+2. VPC
+3. ECR (Elastic Container Registry)
+4. Subnets and Routetables
+5. Security Groups
 
+The terraform files are contained in this repository, they include files that end with ".tf"
+In order to use terraform to deploy, we run:
 
-<!-- BEGIN_TF_DOCS -->
-{{ .Content }}
-<!-- END_TF_DOCS -->
+    terraform init
+    terraform plan
+    terraform apply
+
+The above initialises our terraform files, then it displays the various services we are trying to deploy. the "terraform apply" finally launces these services into our AWS Management console.
