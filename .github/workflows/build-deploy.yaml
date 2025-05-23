@@ -3,8 +3,8 @@ name: Build and Push Docker Image to ECR
 on:
   push:
     paths:
-      - 'Src/*'  # Trigger only when Python files change inside the src folder
-      - 'Dockerfile'
+      - 'flaskapp-awsec2/Src/*'  # Trigger only when Python files change inside the src folder
+      - 'flaskapp-awsec2/Dockerfile'
     branches:
       - main
   workflow_dispatch:
