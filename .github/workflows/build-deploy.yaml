@@ -37,6 +37,8 @@ jobs:
 
       - name: Build and Push Docker Image
         run: |
+
+          cd 'flaskapp-awsec2'
           # Builds the Docker image with the appropriate tag and pushes it to ECR
           docker build -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPO }}:${{ env.GIT_SHA }} .
           docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPO }}:${{ env.GIT_SHA }}

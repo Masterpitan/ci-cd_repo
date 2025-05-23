@@ -5,13 +5,13 @@ FROM python:3
 WORKDIR /app
 
 # Copy the requirements.txt file from the src directory of the host to the /app directory inside the container
-COPY Src/requirements.txt /app
+COPY ./requirements.txt /app
 
 # Install the Python dependencies listed in the requirements.txt file using pip
 RUN pip install -r requirements.txt
 
 # Copy all files from the src directory of the host to the /app directory inside the container
-COPY Src/* /app
+COPY ./* /app
 
 # Expose port 5000 to allow external connections to the docker application
 EXPOSE 5000
